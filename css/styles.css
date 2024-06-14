@@ -1,0 +1,246 @@
+:root {
+    /*permite guardar variables inician con doble --*/
+    --blanco: #ffffff;
+    --negro: #212121;
+    --primario: #FFC107;
+    --secundario: #0097A7;
+    --gris:#757575;
+}
+html {
+    font-size: 62.5%;
+    /*permite ajustar el tamaño de los rem al tama ño del documento*/
+    box-sizing: border-box;/*evita que los elementos modifiquen sus tamaños por padding*/
+    scroll-snap-type: y mandatory;
+}
+*, *:before, *:after { /*el elemeno, elemento es para aplicar lo mismo a 2 elementos*/
+    box-sizing: inherit; /*    *(elije todo):antes o despues de cada elemento      */
+  }
+body {
+    font-size: 16px;
+    font-family: 'Krub', sans-serif;
+}
+.sombra{
+    -webkit-box-shadow: 6px 4px 14px -1px rgba(102,102,102,1);
+    -moz-box-shadow: 6px 4px 14px -1px rgba(102,102,102,1);
+    box-shadow: 6px 4px 14px -1px rgba(102,102,102,1);
+
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 2.8rem
+}
+h3{
+    font-size: 1.8rem
+}
+h1, h2,h3{
+    text-align: center;
+}
+.titulo{
+    font-size: 3.8rem;
+    font-weight: bold;
+}
+.titulo span {
+    /**/
+    font-size: 2rem;
+}
+option{
+    color: #212121;
+    background-color: #0097A7;
+}
+/*                                                      utilidades                                                      */
+.wi-100{
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .wi-100{
+        width: auto;
+    }
+}
+.flex{
+    display: flex;
+}
+.alinerar-derecha{
+    justify-content: flex-end;
+}
+.contenedor{
+    max-width:120rem ; /*esta media es por un estandar, como maximo y solo si hay ese espacio*/    
+    margin: 0 auto;
+    /*
+    margin contiene 4 valores el top(arriba), izquierda, derecha (rigth,left) y bottom
+              top    right   bottom   left
+    margin     0   auto     0    auto;
+    o
+    margin: 0 auto;
+
+    */
+}
+.nav-bg{
+    background-color: var(--secundario);    
+}
+.navegacion-principal{   
+   display: flex;/*habilita las secciones de flex*/  
+   flex-direction: column; /*cuando este en forma pequeña estara en forma de columna*/
+}
+@media (min-width: 768px) {
+    .navegacion-principal{
+        flex-direction: row;/*cuando este en esta tamaño estara en forma de fila*/
+        justify-content: space-between;
+    }
+}
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+.boton:hover{
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .boton{
+        width: auto; /*el ancho del boton se establece acorde al ancho de pantalla*/
+    }
+}
+.navegacion-principal a{
+    display: block;
+    text-align: center;
+    padding: 1rem; /*el padding es el espacio que le da entre los margenes como le pone 1 rem se coloca 1 rem arriba, abajo, izq, derecha*/
+    color: var(--blanco);
+    text-decoration: none;/*quita el subrrayado*/
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.navegacion-principal a:hover{ /**es un evento de pasar el maouse y cambia de color*/
+    background-color: var(--primario);
+    color: var(--negro);
+}
+
+.hero{
+    background-image: url(../img/hero.jpg);/*.. para salir de las carpetas y llegar al archivo*/
+    background-repeat: no-repeat;/*asi la imagen no se repetira si se agranda*/
+    background-size:cover ;/*esto para que la imgen se acomode al tamaño de la pantalla sin cortarse*/
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+.contenido-hero{
+    position: absolute;
+    background-color: rgba(0, 0, 0, .6);
+    width: 100%;
+    height: 100%;
+
+    /*                    codigo para alinear vertical y horizontalmente          */
+    display: flex;                /*habilitamos el acomodar*/
+    flex-direction: column;
+    align-items: center;   /*alineamos vertical*/
+    justify-content: center; /*alineamos horizontal*/
+}
+.contenido-hero h2, .contenido-hero p{
+    color: var(--blanco);
+}
+@media (min-width: 768px) {
+    .servicios{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /*divide al grid en 3 segun los fr*/
+        column-gap: 2rem; /*es como el padding, es la separacion de los elemntos*/
+        
+    }
+}
+
+.servicio{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.servicio h3{
+    color: var(--secundario);
+    font-weight: normal;
+}
+.servicio p{
+    line-height: 2;
+    text-align: center;
+}
+
+.servicio .iconos{
+    height: 20rem;
+    width: 20rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.formulario{
+    background-color: var(--gris);
+    width: min(60rem, 100%);/*Utilizar el valor mas pequeño, le da el ancho*/
+    margin: 0 auto;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+.formulario fieldset{
+    border: none;
+}
+.formulario legend{
+    text-align: center;
+    font-size: 1.5;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+@media (min-width: 768px) {
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1.5rem;
+    }
+}
+.campo:nth-child(3){
+    grid-column: 1 / 3;
+}
+.campo:nth-child(4){
+    grid-column: 1 / 3;
+}
+
+.campo{
+    margin-bottom: 1rem;
+}
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+.input-text{
+    width: 100%;
+    border: none;
+    border-radius: .5rem;
+    padding: 1.5rem;
+}
+.enviar .boton {
+    width: 100%;
+}
+.campo textarea{
+    height: 20rem;
+}
+.footer{
+    text-align: center;
+}
